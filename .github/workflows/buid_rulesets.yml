@@ -117,5 +117,5 @@ jobs:
             build/proxy/proxy-*.srs
             rulesets/shadowrocket/direct/direct-*.list
             rulesets/shadowrocket/proxy/proxy-*.list
-            Nekoray/*.json
-            Shadowrocket/*.conf
+            singbox/*.json
+            shadowrocket/*.conf
