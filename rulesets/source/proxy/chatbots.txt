@@ -1,1 +1,3 @@
-example.invalid
+chatgpt.com
+gemini.google.com
+grok.com
