@@ -28,38 +28,50 @@ jobs:
           chmod +x ./sing-box
           ./sing-box version
 
-      - name: Generate Shadowrocket .list
+      - name: Generate Shadowrocket .list (fail on empty)
         run: |
           set -euo pipefail
           mkdir -p rulesets/shadowrocket/direct rulesets/shadowrocket/proxy
+          shopt -s nullglob
 
           for dir in direct proxy; do
-            shopt -s nullglob
             for f in rulesets/source/${dir}/*.txt; do
+              # Require at least one non-empty, non-comment line
+              if ! grep -qE '^[^#[:space:]]' "$f"; then
+                echo "ERROR: Empty ruleset source file (or comments/whitespace only): $f"
+                exit 1
+              fi
+
               base=$(basename "$f" .txt)
               name="${dir}-${base}"
               out="rulesets/shadowrocket/${dir}/${name}.list"
 
               echo "# ${name}" > "$out"
-              sed 's/^/DOMAIN-SUFFIX,/' "$f" >> "$out"
+              grep -E '^[^#[:space:]]' "$f" | sed 's/^/DOMAIN-SUFFIX,/' >> "$out"
             done
           done
 
-      - name: Generate sing-box JSON
+      - name: Generate sing-box JSON (fail on empty)
         run: |
           set -euo pipefail
           mkdir -p rulesets/singbox/direct rulesets/singbox/proxy
+          shopt -s nullglob
 
           for dir in direct proxy; do
-            shopt -s nullglob
             for f in rulesets/source/${dir}/*.txt; do
+              # Require at least one non-empty, non-comment line
+              if ! grep -qE '^[^#[:space:]]' "$f"; then
+                echo "ERROR: Empty ruleset source file (or comments/whitespace only): $f"
+                exit 1
+              fi
+
               base=$(basename "$f" .txt)
               name="${dir}-${base}"
               json="rulesets/singbox/${dir}/${name}.json"
 
               {
                 echo '{ "version": 1, "rules": [ { "domain_suffix": ['
-                sed 's/.*/"&",/' "$f" | sed '$ s/,$//'
+                grep -E '^[^#[:space:]]' "$f" | sed 's/.*/"&",/' | sed '$ s/,$//'
                 echo '] } ] }'
               } > "$json"
             done
@@ -90,7 +102,7 @@ jobs:
                 exit 1
               fi
 
-              mv "$srs" build/${dir}/
+              mv "$srs" "build/${dir}/"
             done
           done
 
@@ -105,5 +117,5 @@ jobs:
             build/proxy/proxy-*.srs
             rulesets/shadowrocket/direct/direct-*.list
             rulesets/shadowrocket/proxy/proxy-*.list
-            singbox/*.json
-            shadowrocket/*.conf
+            Nekoray/*.json
+            Shadowrocket/*.conf
