@@ -19,6 +19,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Set timestamp
+        run: echo "TS=$(date -u +'%d%m%Y-%H%M%S')" >> $GITHUB_ENV
+
       - name: Download sing-box
         run: |
           set -euo pipefail
@@ -160,8 +163,8 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: auto-${{ github.run_id }}
-          name: Auto build ${{ github.run_id }}
+          tag_name: auto-${{ env.TS }}-${{ github.run_id }}
+          name: Auto build ${{ env.TS }}
           body_path: RELEASE.md
           make_latest: true
           files: |
