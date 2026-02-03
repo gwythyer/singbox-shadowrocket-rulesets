@@ -3,6 +3,7 @@ name: Build rule-sets (srs + list)
 on:
   push:
     paths:
+      - ".github/workflows/build_rulesets.yml"
       - "rulesets/source/direct/*.txt"
       - "rulesets/source/proxy/*.txt"
   workflow_dispatch:
