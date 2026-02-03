@@ -82,6 +82,7 @@ vrv.co
 wide-youtube.l.google.com
 wide-youtube.l.google.com
 withgoogle.com
+xhcdn.com
 youtube-ui.l.google.com
 youtubeembeddedplayer.googleapis.com
 youtubei.googleapis.com
