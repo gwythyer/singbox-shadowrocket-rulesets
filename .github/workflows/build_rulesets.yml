@@ -19,8 +19,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set timestamp
-        run: echo "TS=$(date -u +'%d.%m.%Y-%H:%M:%S')" >> $GITHUB_ENV
+      - name: Set timestamps
+        run: |
+          echo "TS_TAG=$(date -u +'%Y%m%d-%H%M%S')" >> $GITHUB_ENV
+          echo "TS_NAME=$(date -u +'%d.%m.%Y — %H:%M:%S UTC')" >> $GITHUB_ENV
 
       - name: Download sing-box
         run: |
@@ -163,8 +165,8 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: auto-${{ env.TS }}-${{ github.run_id }}
-          name: Auto build ${{ env.TS }}
+          tag_name: auto-${{ env.TS_TAG }}-${{ github.run_id }}
+          name: Автосборка от ${{ env.TS_NAME }}
           body_path: RELEASE.md
           make_latest: true
           files: |
