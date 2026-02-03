@@ -160,9 +160,10 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: auto-${{ github.run_number }}
-          name: Auto build ${{ github.run_number }}
+          tag_name: auto-${{ github.run_id }}
+          name: Auto build ${{ github.run_id }}
           body_path: RELEASE.md
+          make_latest: true
           files: |
             build/direct/direct-*.srs
             build/proxy/proxy-*.srs
