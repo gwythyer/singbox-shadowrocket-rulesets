@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set timestamp
-        run: echo "TS=$(date -u +'%d%m%Y-%H%M%S')" >> $GITHUB_ENV
+        run: echo "TS=$(date -u +'%d.%m.%Y-%H:%M:%S')" >> $GITHUB_ENV
 
       - name: Download sing-box
         run: |
