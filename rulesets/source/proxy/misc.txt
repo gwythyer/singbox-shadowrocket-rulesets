@@ -9,6 +9,7 @@ binchecker.pro
 bincodes.com
 cookielaw.org
 esclick.me
+fandom.com
 fity.club
 fluidplayer.com
 generate.plus
