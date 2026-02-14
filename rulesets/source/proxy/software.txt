@@ -6,6 +6,7 @@ deepl.com
 dnsleaktest.com
 docker.com
 friendhosting.net
+ishosting.io
 ip2location.com
 iplocation.com
 iplocation.io
