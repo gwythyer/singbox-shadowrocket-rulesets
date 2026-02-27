@@ -71,6 +71,7 @@ qq.crunchyroll.com
 redditspace.com
 rmhfrtnd.com
 sdk.iad-03.braze.com
+statichub.org
 storage-hencdn.com
 strpst.com
 surrit.com
