@@ -9,6 +9,7 @@ docker.com
 friendhosting.net
 ishosting.io
 ip2location.com
+ifconfig.me
 iplocation.com
 iplocation.io
 iplocation.net
