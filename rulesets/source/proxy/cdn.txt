@@ -66,6 +66,7 @@ nexus-cdn.com
 nineyu.com
 phcdn.com
 phncdn.com
+plyr.io
 prefecturesuggestions.com
 qq.crunchyroll.com
 redditspace.com
@@ -78,11 +79,13 @@ surrit.com
 surrit.store
 ttcache.com
 ttvnw.net
+upload18.org
 video1.cdnlibs.org
 vrv.co
 wide-youtube.l.google.com
 wide-youtube.l.google.com
 withgoogle.com
+wowstream2.cloud
 xhcdn.com
 youtube-ui.l.google.com
 youtubeembeddedplayer.googleapis.com
