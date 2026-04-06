@@ -11,6 +11,7 @@ cdn-fc.com
 cdn.7tv.app
 cdn.betterttv.net
 cdn.frankerfacez.com
+cdn2site.com
 cdn3x.com
 cdn77.org
 cdninstagram.com
@@ -38,6 +39,7 @@ cocdn.co
 cr-news-api-service.prd.crunchyrollsvc.com
 crunchyrollcdn.com
 developers.cloudflare.com
+digital-cdn.net
 encryptedsni.com
 etahub.com
 fapnfuck.com
@@ -96,3 +98,4 @@ youtubekids.com
 ytdown.to
 ytimg.com
 ytimg.l.google.com
+zencdn.net
