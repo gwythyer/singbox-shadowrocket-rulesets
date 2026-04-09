@@ -8,6 +8,7 @@ amazon-adsystem.com
 b-cdn.net
 browser-intake-us5-datadoghq.com
 cdn-fc.com
+cdn-telegram.org
 cdn.7tv.app
 cdn.betterttv.net
 cdn.frankerfacez.com
