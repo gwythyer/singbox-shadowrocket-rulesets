@@ -1,0 +1,4 @@
+# proxy-chatbots
+DOMAIN-SUFFIX,chatgpt.com
+DOMAIN-SUFFIX,gemini.google.com
+DOMAIN-SUFFIX,grok.com
