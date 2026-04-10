@@ -162,6 +162,7 @@ jobs:
             done
           done
 
+      # 5) Append telegram-custom proxy-domains.list
       - name: Append custom mixed rules to proxy-domains.list
         run: |
           set -euo pipefail
@@ -205,6 +206,7 @@ jobs:
           echo "Updated $FILE"
           tail -n 30 "$FILE"
 
+      # 6) Commit to main .list
       - name: Copy generated .list to shadowrocket/lists
         run: |
           set -euo pipefail
@@ -233,6 +235,7 @@ jobs:
           git commit -m "chore: update shadowrocket lists [skip ci]"
           git push origin HEAD:main
 
+      # 7) Create release
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
