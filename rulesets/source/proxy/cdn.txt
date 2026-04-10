@@ -62,6 +62,7 @@ imagedelivery.net
 imgsrv.crunchyroll.com
 ipify.org
 jtvnw.net
+jwpcdn.com
 jwplatform.com
 litix.io
 mbbcdn.com
