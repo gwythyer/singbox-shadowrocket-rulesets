@@ -4,6 +4,7 @@
 ahcdn.com
 ahort.xyz
 akamaized.net
+akmicdn.com
 amazon-adsystem.com
 b-cdn.net
 browser-intake-us5-datadoghq.com
