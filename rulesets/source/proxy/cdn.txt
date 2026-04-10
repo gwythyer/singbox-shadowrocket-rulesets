@@ -37,6 +37,7 @@ cloudflarestream.com
 cloudflaretest.com
 cloudfront.net
 cocdn.co
+content.jwplatform.com
 cr-news-api-service.prd.crunchyrollsvc.com
 crunchyrollcdn.com
 developers.cloudflare.com
