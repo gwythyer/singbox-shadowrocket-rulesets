@@ -6,6 +6,7 @@ ahort.xyz
 akamaized.net
 akmicdn.com
 amazon-adsystem.com
+awmcdn.net
 b-cdn.net
 browser-intake-us5-datadoghq.com
 cdn-fc.com
