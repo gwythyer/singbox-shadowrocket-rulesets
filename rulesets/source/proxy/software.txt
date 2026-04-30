@@ -9,7 +9,9 @@ deepl.com
 dnsleaktest.com
 docker.com
 friendhosting.net
+googleusercontent.com
 graph.org
+gstatic.com
 imem.app
 ishosting.com
 ishosting.io
