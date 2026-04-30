@@ -11,6 +11,7 @@ docker.com
 friendhosting.net
 graph.org
 imem.app
+ishosting.com
 ishosting.io
 ip2location.com
 ifconfig.me
