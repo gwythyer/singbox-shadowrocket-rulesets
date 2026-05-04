@@ -3,6 +3,7 @@ analytics.google.com
 auth0.com
 busuu.com
 callfilter.app
+chilkey.com
 comments.app
 contest.com
 deepl.com
