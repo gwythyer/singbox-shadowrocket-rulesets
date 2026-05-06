@@ -14,6 +14,7 @@ cdn-telegram.org
 cdn.7tv.app
 cdn.betterttv.net
 cdn.frankerfacez.com
+cdn.perfops.net
 cdn2cdn.com
 cdn2site.com
 cdn3x.com
@@ -75,6 +76,7 @@ mbcdnsar.org
 mgcdn.xyz
 nexus-cdn.com
 nineyu.com
+perfops.net
 phcdn.com
 phncdn.com
 plyr.io
