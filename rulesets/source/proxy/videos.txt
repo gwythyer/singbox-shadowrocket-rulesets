@@ -4,9 +4,11 @@ betterttv.net
 ext-twitch.tv
 ffzap.com
 frankerfacez.com
+pscp.tv
 shara.tv
 ssyoutube.com
 ttvnw.net
+twimg.com
 twitch.tv
 twitchmetrics.net
 twitchstats.net
