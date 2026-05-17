@@ -10,6 +10,7 @@ deepl.com
 dnsleaktest.com
 docker.com
 friendhosting.net
+fugi.tech
 googleusercontent.com
 graph.org
 gstatic.com
