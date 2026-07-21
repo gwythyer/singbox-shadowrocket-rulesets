@@ -5,6 +5,7 @@ ext-twitch.tv
 ffzap.com
 frankerfacez.com
 kino.pub
+kino.watch
 pscp.tv
 shara.tv
 ssyoutube.com
