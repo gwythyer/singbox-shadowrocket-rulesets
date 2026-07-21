@@ -213,6 +213,7 @@ DOMAIN-SUFFIX,jwplatform.com
 DOMAIN-SUFFIX,keyboardmaestro.com
 DOMAIN-SUFFIX,kinde.com
 DOMAIN-SUFFIX,kindroid.ai
+DOMAIN-SUFFIX,kino.pub
 DOMAIN-SUFFIX,kupid.ai
 DOMAIN-SUFFIX,leakav.com
 DOMAIN-SUFFIX,leakedmodels.com
@@ -389,6 +390,7 @@ DOMAIN-SUFFIX,ytdown.to
 DOMAIN-SUFFIX,ytimg.com
 DOMAIN-SUFFIX,ytimg.l.google.com
 DOMAIN-SUFFIX,zencdn.net
+DOMAIN-SUFFIX,zerkalo.xyz
 
 # BEGIN CUSTOM MIXED RULES
 DOMAIN,api.imem.app
