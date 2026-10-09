@@ -1,12 +1,15 @@
 4vps.su
 analytics.google.com
 auth0.com
+bartendermac.com
 busuu.com
 callfilter.app
 chilkey.com
 comments.app
 contest.com
+daemon-tools.cc
 deepl.com
+dnscrypt.org
 dnsleaktest.com
 docker.com
 friendhosting.net
@@ -14,6 +17,7 @@ fugi.tech
 googleusercontent.com
 graph.org
 gstatic.com
+hiwaifu.com
 imem.app
 ishosting.com
 ishosting.io
@@ -25,8 +29,12 @@ iplocation.net
 keyboardmaestro.com
 kinde.com
 legra.ph
+macbartender.com
+malavida.com
 mbrx.app
+mtproto.ru
 mushroomtrack.com
+nodemaven.com
 ntc.party
 oxylabs.io
 paddle.com
@@ -39,6 +47,7 @@ speedtest.net
 steamgg.net
 steinberg.net
 stel.com
+simplednscrypt.org
 swiftgram.org
 t.me
 tdesktop.com
