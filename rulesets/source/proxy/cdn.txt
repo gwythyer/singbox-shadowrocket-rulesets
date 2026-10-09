@@ -6,6 +6,7 @@ ahort.xyz
 akamaized.net
 akmicdn.com
 amazon-adsystem.com
+appmifile.com
 awmcdn.net
 b-cdn.net
 browser-intake-us5-datadoghq.com
@@ -49,6 +50,7 @@ digital-cdn.net
 encryptedsni.com
 etahub.com
 fapnfuck.com
+filmix.my
 fpnpmcdn.net
 gccrunchyroll.com
 gold-usergeneratedcontent.net
@@ -92,8 +94,13 @@ strpst.com
 streamtape.com
 surrit.com
 surrit.store
+tiktokcdn-eu.com
+tiktokv.com
+tiktokv.eu
+tiktokw.eu
 ttcache.com
 ttvnw.net
+ttwstatic.com
 upload18.org
 video1.cdnlibs.org
 vrv.co
@@ -110,3 +117,4 @@ ytdown.to
 ytimg.com
 ytimg.l.google.com
 zencdn.net
+zerkalo.xyz
