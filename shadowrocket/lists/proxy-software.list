@@ -2,12 +2,15 @@
 DOMAIN-SUFFIX,4vps.su
 DOMAIN-SUFFIX,analytics.google.com
 DOMAIN-SUFFIX,auth0.com
+DOMAIN-SUFFIX,bartendermac.com
 DOMAIN-SUFFIX,busuu.com
 DOMAIN-SUFFIX,callfilter.app
 DOMAIN-SUFFIX,chilkey.com
 DOMAIN-SUFFIX,comments.app
 DOMAIN-SUFFIX,contest.com
+DOMAIN-SUFFIX,daemon-tools.cc
 DOMAIN-SUFFIX,deepl.com
+DOMAIN-SUFFIX,dnscrypt.org
 DOMAIN-SUFFIX,dnsleaktest.com
 DOMAIN-SUFFIX,docker.com
 DOMAIN-SUFFIX,friendhosting.net
@@ -15,6 +18,7 @@ DOMAIN-SUFFIX,fugi.tech
 DOMAIN-SUFFIX,googleusercontent.com
 DOMAIN-SUFFIX,graph.org
 DOMAIN-SUFFIX,gstatic.com
+DOMAIN-SUFFIX,hiwaifu.com
 DOMAIN-SUFFIX,imem.app
 DOMAIN-SUFFIX,ishosting.com
 DOMAIN-SUFFIX,ishosting.io
@@ -26,8 +30,12 @@ DOMAIN-SUFFIX,iplocation.net
 DOMAIN-SUFFIX,keyboardmaestro.com
 DOMAIN-SUFFIX,kinde.com
 DOMAIN-SUFFIX,legra.ph
+DOMAIN-SUFFIX,macbartender.com
+DOMAIN-SUFFIX,malavida.com
 DOMAIN-SUFFIX,mbrx.app
+DOMAIN-SUFFIX,mtproto.ru
 DOMAIN-SUFFIX,mushroomtrack.com
+DOMAIN-SUFFIX,nodemaven.com
 DOMAIN-SUFFIX,ntc.party
 DOMAIN-SUFFIX,oxylabs.io
 DOMAIN-SUFFIX,paddle.com
@@ -40,6 +48,7 @@ DOMAIN-SUFFIX,speedtest.net
 DOMAIN-SUFFIX,steamgg.net
 DOMAIN-SUFFIX,steinberg.net
 DOMAIN-SUFFIX,stel.com
+DOMAIN-SUFFIX,simplednscrypt.org
 DOMAIN-SUFFIX,swiftgram.org
 DOMAIN-SUFFIX,t.me
 DOMAIN-SUFFIX,tdesktop.com
