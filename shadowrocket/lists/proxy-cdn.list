@@ -7,6 +7,7 @@ DOMAIN-SUFFIX,ahort.xyz
 DOMAIN-SUFFIX,akamaized.net
 DOMAIN-SUFFIX,akmicdn.com
 DOMAIN-SUFFIX,amazon-adsystem.com
+DOMAIN-SUFFIX,appmifile.com
 DOMAIN-SUFFIX,awmcdn.net
 DOMAIN-SUFFIX,b-cdn.net
 DOMAIN-SUFFIX,browser-intake-us5-datadoghq.com
@@ -50,6 +51,7 @@ DOMAIN-SUFFIX,digital-cdn.net
 DOMAIN-SUFFIX,encryptedsni.com
 DOMAIN-SUFFIX,etahub.com
 DOMAIN-SUFFIX,fapnfuck.com
+DOMAIN-SUFFIX,filmix.my
 DOMAIN-SUFFIX,fpnpmcdn.net
 DOMAIN-SUFFIX,gccrunchyroll.com
 DOMAIN-SUFFIX,gold-usergeneratedcontent.net
@@ -93,8 +95,13 @@ DOMAIN-SUFFIX,strpst.com
 DOMAIN-SUFFIX,streamtape.com
 DOMAIN-SUFFIX,surrit.com
 DOMAIN-SUFFIX,surrit.store
+DOMAIN-SUFFIX,tiktokcdn-eu.com
+DOMAIN-SUFFIX,tiktokv.com
+DOMAIN-SUFFIX,tiktokv.eu
+DOMAIN-SUFFIX,tiktokw.eu
 DOMAIN-SUFFIX,ttcache.com
 DOMAIN-SUFFIX,ttvnw.net
+DOMAIN-SUFFIX,ttwstatic.com
 DOMAIN-SUFFIX,upload18.org
 DOMAIN-SUFFIX,video1.cdnlibs.org
 DOMAIN-SUFFIX,vrv.co
@@ -111,3 +118,4 @@ DOMAIN-SUFFIX,ytdown.to
 DOMAIN-SUFFIX,ytimg.com
 DOMAIN-SUFFIX,ytimg.l.google.com
 DOMAIN-SUFFIX,zencdn.net
+DOMAIN-SUFFIX,zerkalo.xyz
