@@ -17,9 +17,11 @@ ghostarchive.org
 greip.io
 gstatic.com
 hololivepro.com
+howtosolvecube.com
 libraryh3lp.com
 magagenetix.com
 manual.nssurge.com
+mi.com
 mjedge.net
 mobatek.net
 octocaptcha.com
@@ -28,6 +30,7 @@ phywe.com
 plentymarkets.com
 polygon.com
 polygonimages.com
+rgg.land
 rtings.com
 soundguys.com
 storyblok.com
