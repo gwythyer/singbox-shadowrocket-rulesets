@@ -75,7 +75,55 @@ jobs:
             echo "Aggregated ${dir}: $(wc -l < "$agg") domains -> $agg"
           done
 
-      # 2) Shadowrocket .list (по каждому файлу + агрегаты)
+      # 2) INCY profile
+      - name: Generate INCY proxy routing profile
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          mkdir -p build
+          test -s .tmp/proxy-domains.txt
+
+          # Normalize leading dots, trim whitespace, remove comments,
+          # deduplicate, and sort the domains for the INCY profile.
+          sed -E \
+            -e 's/^[[:space:]]+//' \
+            -e 's/[[:space:]]+$//' \
+            -e 's/^\.//' \
+            .tmp/proxy-domains.txt \
+            | grep -vE '^(#|$)' \
+            | sort -u \
+            > .tmp/incy-proxy-domains.txt
+
+          test -s .tmp/incy-proxy-domains.txt
+
+          # Build the INCY routing profile.
+          jq -Rn '
+            {
+              Name: "Proxy Domains",
+              GlobalProxy: "false",
+              DirectSites: [],
+              DirectIp: [],
+              ProxySites: [inputs | select(length > 0)],
+              ProxyIp: [],
+              BlockSites: [],
+              BlockIp: [],
+              DomainStrategy: "IPIfNonMatch",
+              FakeDNS: "false"
+            }
+          ' < .tmp/incy-proxy-domains.txt > build/proxy-domains.json
+
+          # Validate the generated profile.
+          jq -e '
+            .Name == "Proxy Domains" and
+            .GlobalProxy == "false" and
+            (.ProxySites | type == "array") and
+            (.ProxySites | length > 0)
+          ' build/proxy-domains.json > /dev/null
+
+          echo "INCY profile generated: $(jq '.ProxySites | length' build/proxy-domains.json) domains"
+
+      # 3) Shadowrocket .list (по каждому файлу + агрегаты)
       - name: Generate Shadowrocket .list (fail on empty)
         run: |
           set -euo pipefail
@@ -99,7 +147,7 @@ jobs:
             sed 's/^/DOMAIN-SUFFIX,/' "$agg" >> "$out"
           done
 
-      # 3) sing-box JSON (по каждому файлу + агрегаты)
+      # 4) sing-box JSON (по каждому файлу + агрегаты)
       - name: Generate sing-box JSON (fail on empty)
         run: |
           set -euo pipefail
@@ -140,7 +188,7 @@ jobs:
             jq empty "$f"
           done
 
-      # 4) Compile SRS (включая direct-domains/proxy-domains)
+      # 5) Compile SRS (включая direct-domains/proxy-domains)
       - name: Compile SRS
         run: |
           set -euo pipefail
@@ -162,7 +210,7 @@ jobs:
             done
           done
 
-      # 5) Append telegram-custom proxy-domains.list
+      # 6) Append telegram-custom proxy-domains.list
       - name: Append custom mixed rules to proxy-domains.list
         run: |
           set -euo pipefail
@@ -206,7 +254,7 @@ jobs:
           echo "Updated $FILE"
           tail -n 30 "$FILE"
 
-      # 6) Commit to main .list
+      # 7) Commit to main .list
       - name: Copy generated .list to shadowrocket/lists
         run: |
           set -euo pipefail
@@ -235,7 +283,7 @@ jobs:
           git commit -m "chore: update shadowrocket lists [skip ci]"
           git push origin HEAD:main
 
-      # 7) Create release
+      # 8) Create release
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
@@ -246,6 +294,7 @@ jobs:
           files: |
             build/direct/direct-*.srs
             build/proxy/proxy-*.srs
+            build/proxy-domains.json
             rulesets/shadowrocket/direct/direct-*.list
             rulesets/shadowrocket/proxy/proxy-*.list
             singbox/*.json
