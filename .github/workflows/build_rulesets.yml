@@ -283,7 +283,7 @@ jobs:
           git commit -m "chore: update shadowrocket lists [skip ci]"
           git push origin HEAD:main
 
-      # 8 Commit to main .json
+      # 8) Commit to main .json
       - name: Copy INCY profile
         run: |
           cp build/proxy-domains.json ./proxy-domains.json
@@ -305,7 +305,19 @@ jobs:
           git commit -m "chore: update INCY proxy profile [skip ci]"
           git push origin HEAD:main
 
-      # 9) Create release
+      #9) 
+      - name: Generate INCY deeplinks
+        run: |
+          set -euo pipefail
+
+          BASE64=$(base64 -w 0 build/proxy-domains.json)
+
+          echo "incy://routing/add/${BASE64}" > build/incy-add.txt
+          echo "incy://routing/onadd/${BASE64}" > build/incy-onadd.txt
+
+          echo "INCY deeplinks generated"
+
+      # 10) Create release
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
@@ -315,6 +327,8 @@ jobs:
           make_latest: true
           files: |
             build/direct/direct-*.srs
+            build/incy-add.txt
+            build/incy-onadd.txt
             build/proxy/proxy-*.srs
             build/proxy-domains.json
             rulesets/shadowrocket/direct/direct-*.list
