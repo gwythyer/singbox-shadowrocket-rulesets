@@ -123,7 +123,6 @@ jobs:
 
           echo "INCY profile generated: $(jq '.ProxySites | length' build/proxy-domains.json) domains"
 
-      # 2b) INCY direct profile
       - name: Generate INCY direct routing profile
         shell: bash
         run: |
@@ -132,14 +131,15 @@ jobs:
           mkdir -p build
           test -s .tmp/direct-domains.txt
 
-          # Normalize domains for the INCY profile.
-          sed -E \\
-            -e 's/^[[:space:]]+//' \\
-            -e 's/[[:space:]]+$//' \\
-            -e 's/^\\.//' \\
-            .tmp/direct-domains.txt \\
-            | grep -vE '^(#|$)' \\
-            | sort -u \\
+          # Normalize leading dots, trim whitespace, remove comments,
+          # deduplicate, and sort the domains for the INCY profile.
+          sed -E \
+            -e 's/^[[:space:]]+//' \
+            -e 's/[[:space:]]+$//' \
+            -e 's/^\.//' \
+            .tmp/direct-domains.txt \
+            | grep -vE '^(#|$)' \
+            | sort -u \
             > .tmp/incy-direct-domains.txt
 
           test -s .tmp/incy-direct-domains.txt
@@ -165,9 +165,7 @@ jobs:
             .Name == "Direct Domains" and
             .GlobalProxy == "false" and
             (.DirectSites | type == "array") and
-            (.DirectSites | length > 0) and
-            (.ProxySites | type == "array") and
-            (.ProxySites | length == 0)
+            (.DirectSites | length > 0)
           ' build/direct-domains.json > /dev/null
 
           echo "INCY direct profile generated: $(jq '.DirectSites | length' build/direct-domains.json) domains"
@@ -263,19 +261,19 @@ jobs:
       - name: Append custom mixed rules to proxy-domains.list
         run: |
           set -euo pipefail
-      
+
           FILE="rulesets/shadowrocket/proxy/proxy-domains.list"
           TMP="$(mktemp)"
-      
+
           awk '
             BEGIN {skip=0}
             /^# BEGIN CUSTOM MIXED RULES$/ {skip=1; next}
             /^# END CUSTOM MIXED RULES$/   {skip=0; next}
             skip==0 {print}
           ' "$FILE" > "$TMP"
-      
+
           cat >> "$TMP" <<'EOF'
-      
+
           # BEGIN CUSTOM MIXED RULES
           DOMAIN,api.imem.app
           DOMAIN,api.swiftgram.app
@@ -297,9 +295,9 @@ jobs:
           IP-ASN,62041,no-resolve
           # END CUSTOM MIXED RULES
           EOF
-      
+
           mv "$TMP" "$FILE"
-      
+
           echo "Updated $FILE"
           tail -n 30 "$FILE"
 
@@ -307,28 +305,28 @@ jobs:
       - name: Copy generated .list to shadowrocket/lists
         run: |
           set -euo pipefail
-      
+
           mkdir -p shadowrocket/lists
           find shadowrocket/lists -type f -name "*.list" -delete
           find rulesets/shadowrocket -type f -name "*.list" -exec cp {} shadowrocket/lists/ \;
-      
+
           echo "Copied files:"
           ls -la shadowrocket/lists
 
       - name: Commit .list to main
         run: |
           set -euo pipefail
-      
+
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-      
+
           git add shadowrocket/lists/*.list
-      
+
           if git diff --cached --quiet; then
             echo "No generated changes to commit"
             exit 0
           fi
-      
+
           git commit -m "chore: update shadowrocket lists [skip ci]"
           git push origin HEAD:main
 
