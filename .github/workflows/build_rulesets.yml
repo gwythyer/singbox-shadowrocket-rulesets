@@ -75,6 +75,27 @@ jobs:
             echo "Aggregated ${dir}: $(wc -l < "$agg") domains -> $agg"
           done
 
+      # 1b) Plain TXT domain lists (без кавычек и префиксов)
+      - name: Generate plain domain lists
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          for dir in direct proxy; do
+            sed -E \
+              -e 's/^[[:space:]]+//' \
+              -e 's/[[:space:]]+$//' \
+              -e 's/^\.//' \
+              ".tmp/${dir}-domains.txt" \
+              | grep -vE '^(#|$)' \
+              | sort -u \
+              > "${dir}-domains.txt"
+
+            test -s "${dir}-domains.txt"
+
+            echo "${dir}: $(wc -l < "${dir}-domains.txt") domains"
+          done
+
       # 2) INCY profile
       - name: Generate INCY proxy routing profile
         shell: bash
@@ -165,7 +186,9 @@ jobs:
             .Name == "Direct Domains" and
             .GlobalProxy == "false" and
             (.DirectSites | type == "array") and
-            (.DirectSites | length > 0)
+            (.DirectSites | length > 0) and
+            (.ProxySites | type == "array") and
+            (.ProxySites | length == 0)
           ' build/direct-domains.json > /dev/null
 
           echo "INCY direct profile generated: $(jq '.DirectSites | length' build/direct-domains.json) domains"
@@ -330,31 +353,39 @@ jobs:
           git commit -m "chore: update shadowrocket lists [skip ci]"
           git push origin HEAD:main
 
-      # 8) Commit to main .json
-      - name: Copy INCY profiles
+      # 8) Commit to main .json and .txt
+      - name: Copy INCY profiles and plain domain lists
         run: |
           set -euo pipefail
+
           cp build/proxy-domains.json ./proxy-domains.json
           cp build/direct-domains.json ./direct-domains.json
 
-      - name: Commit INCY profiles to main
+          test -s proxy-domains.txt
+          test -s direct-domains.txt
+
+      - name: Commit INCY profiles and domain lists to main
         run: |
           set -euo pipefail
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add proxy-domains.json direct-domains.json
+          git add proxy-domains.json direct-domains.json proxy-domains.txt direct-domains.txt
 
           if git diff --cached --quiet; then
-            echo "INCY profiles have no changes"
+            echo "INCY profiles and domain lists have no changes"
             exit 0
           fi
 
-          git commit -m "chore: update INCY routing profiles [skip ci]"
+          git commit -m "chore: update routing profiles and domain lists [skip ci]"
+
+          # The .list step may already have pushed a commit to main.
+          # Rebase this commit on top of the latest main before pushing.
+          git pull --rebase origin main
           git push origin HEAD:main
 
-      #9) 
+      #9)
       - name: Generate INCY deeplinks
         run: |
           set -euo pipefail
